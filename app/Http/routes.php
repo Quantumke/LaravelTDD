@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/blog');
 });
 
 /*
@@ -26,6 +26,5 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
-});
+get('blog', 'BlogController@index');
+get('blog/{slug}','BlogController@showPost');
